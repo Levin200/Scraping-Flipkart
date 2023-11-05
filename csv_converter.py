@@ -6,6 +6,7 @@ import pandas as pd
 import datetime
 import logging
 import helper
+import os 
 
 logging.basicConfig(level=logging.DEBUG,filename='logs\product_page.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -14,7 +15,9 @@ def Price(product_id, curr_price, actual_price):
     logging.info("Inserting into Price.csv")
     Prices = {"product_id":[product_id], "price":[curr_price], "actual_price":[actual_price], "created_at":[datetime.datetime.now()] }
     price = pd.DataFrame(Prices)
-    price.to_csv(r"C:\Users\Levin Dsouza\Desktop\webscraping\Flipkart\products\product_details\Price.csv",
+
+    price_path = os.path.join(os.getcwd(),'products\product_details\Price.csv')
+    price.to_csv(price_path,
                   mode='a', index=False, header=False )
     logging.info("Inserted into Price.csv")
 
@@ -24,7 +27,9 @@ def Reviews(product_id,review):
     for i in range(len(review)):
         Review = {'product_id':[product_id],'reviews':[review[i]], 'created_at':[datetime.datetime.now()] }
         reviews = pd.DataFrame(Review)
-        reviews.to_csv(r'C:\Users\Levin Dsouza\Desktop\webscraping\Flipkart\products\product_details\Reviews.csv',
+
+        review_path = os.path.join(os.getcwd(),'products\product_details\Reviews.csv')
+        reviews.to_csv(review_path,
                     mode='a',header=False,index=False)
     
     logging.info("Inserted into Reviews.csv")
@@ -45,7 +50,8 @@ def Ratings(product_id, rating, rating_counts,_5_star, _4_star, _3_star, _2_star
     
     logging.info("Inserting values into Ratings.csv")
 
-    ratings.to_csv(r'C:\Users\Levin Dsouza\Desktop\webscraping\Flipkart\products\product_details\Ratings.csv',
+    ratings_path = os.path.join(os.getcwd(),'products\product_details\Ratings.csv')
+    ratings.to_csv(ratings_path,
                 mode='a',index=False, header=False)
 
     logging.info("Inserted into Ratings.csv")
@@ -61,7 +67,9 @@ def Ratings(product_id, rating, rating_counts,_5_star, _4_star, _3_star, _2_star
     
     logging.info("Inserting values into Stars.csv")
     stars = pd.DataFrame(Star)
-    stars.to_csv(r'C:\Users\Levin Dsouza\Desktop\webscraping\Flipkart\products\product_details\Stars.csv',
+
+    stars_path = os.path.join(os.getcwd(),'products\product_details\Stars.csv')
+    stars.to_csv(stars_path,
                  mode='a',index=False,header=False)
     
     logging.info("Inserted into Stars.csv")

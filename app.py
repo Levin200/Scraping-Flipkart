@@ -6,6 +6,11 @@ import testing_category
 import pandas as pd
 import matplotlib.pyplot as plt
 import helper
+import logging
+import os
+
+logging.basicConfig(level=logging.DEBUG,filename= os.path.join(os.getcwd(),'logs\product.log'), filemode='a', format='%(asctime)s - %(levelname)s - %(message)s')
+logging.info("starting app.py")
 
 
 st.set_page_config(layout='wide')

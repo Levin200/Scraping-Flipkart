@@ -4,12 +4,13 @@ import search
 import product_page
 import time 
 import insertion
+import os
 
 def scrape_flipkart():
 
     print("Starting.....")
 
-    logging.basicConfig(level=logging.DEBUG,filename='logs\product.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.basicConfig(level=logging.DEBUG,filename= os.path.join(os.getcwd(),'logs\product.log'), filemode='a', format='%(asctime)s - %(levelname)s - %(message)s')
 
     category = sql_functions.read_category()
 
@@ -42,8 +43,8 @@ def scrape_flipkart():
 
     insertion.insertion_Price_table()
     insertion.insertion_Ratings_table()
-    insertion.insertion_Stars_table()
     insertion.insertion_Reviews_table()
+    insertion.insertion_Stars_table()
 
     logging.info("Completed")
 

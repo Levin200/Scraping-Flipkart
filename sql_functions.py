@@ -5,16 +5,25 @@ It starts with connection to the Database.
 
 import logging
 import mysql.connector
+import os
+from dotenv import load_dotenv
 
 # To connect with MySQL database
 def connect_db():
     logging.info("Connecting To Database")
 
+    load_dotenv(".env")
+
+    HOST = os.environ.get("HOST")
+    USER = os.environ.get("USER")
+    PASSWORD = os.environ.get("PASSWORD")
+    DATABASE_NAME = os.environ.get("DATABASE_NAME")
+
     mydb = mysql.connector.connect(	
-        host = "localhost",
-        user = "root",
-        password = "pass@1234",
-        database = "Flipkart"
+        host = HOST,
+        user = USER,
+        password = PASSWORD,
+        database = DATABASE_NAME
     )
 
     return mydb
@@ -210,7 +219,7 @@ def insert_Price(val):
         successful = True
 
     except Exception as e:
-        logging.critical("Reviews table not updated")
+        logging.critical("Price table not updated")
         logging.critical(e)
         print(e)
         successful = False
@@ -232,13 +241,13 @@ def insert_Ratings(val):
         sql = "INSERT INTO Ratings (rating_id,product_id,rating,count_of_people) VALUES (%s,%s,%s,%s)" 
         cursor.executemany(sql, val) 
         logging.info(f"Records inserted in Ratings Table: {cursor.rowcount}") 
-        print(cursor.rowcount)
+
         mydb.commit() 
 
         successful = True
 
     except Exception as e:
-        logging.critical("Reviews table not updated")
+        logging.critical("Ratings table not updated")
         logging.critical(e)
         print(e)
         successful = False
@@ -260,13 +269,13 @@ def insert_Stars(val):
         sql = "INSERT INTO Stars (rating_id,star_id,star_5 ,star_4 ,star_3 ,star_2 ,star_1) VALUES (%s,%s,%s,%s,%s,%s,%s)" 
         cursor.executemany(sql, val) 
         logging.info(f"Records inserted in Stars Table: {cursor.rowcount}") 
-        print(cursor.rowcount)
+
         mydb.commit() 
 
         successful = True
 
     except Exception as e:
-        logging.critical("Reviews table not updated")
+        logging.critical("Stars table not updated")
         logging.critical(e)
         print(e)
         successful = False
@@ -288,7 +297,7 @@ def insert_Review(val):
         sql = "INSERT INTO Review (product_id,review,created_at) VALUES (%s,%s,%s)" 
         cursor.executemany(sql, val) 
         logging.info(f"Records inserted in Reviews Table: {cursor.rowcount}") 
-        print(cursor.rowcount)
+
         mydb.commit() 
 
         successful = True
@@ -316,7 +325,7 @@ def insert_category_table(val):
         sql = "INSERT INTO Category (category_name) VALUES (%s)" 
         cursor.execute(sql, val) 
         logging.info(f"Records inserted in Reviews Table: {cursor.rowcount}") 
-        print(cursor.rowcount)
+
         mydb.commit()
 
     except Exception as e:
@@ -327,7 +336,7 @@ def insert_category_table(val):
 
 
 # ------------------------%%%% TESTING %%%%----------------------------------------------------------------------------------------------------------------------
-
+#connect_db()
 #all_product_id = read_product_id(1)
 ##print(all_product_id[0])
 #category = read_category()
