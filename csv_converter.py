@@ -86,4 +86,4 @@ def Rankings(product_id,rank):
     rankings.to_csv(ranking_path, mode='a', index=False, header=False)
 
 
-Rankings('fsafsa',43049)
+#Rankings('fsafsa',43049)
