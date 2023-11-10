@@ -334,7 +334,33 @@ def insert_category_table(val):
     finally:
         mydb.close()
 
+def insert_Ranking(val):
+    try:
+        mydb = connect_db()  
 
+        # Printing the connection object
+        logging.info(mydb)
+        logging.info("Connection Successfull")
+
+        cursor = mydb.cursor()
+        sql = "INSERT INTO Ranking (product_id,ranking,created_at) VALUES (%s,%s,%s)" 
+        cursor.executemany(sql, val) 
+        logging.info(f"Records inserted in Ranking Table: {cursor.rowcount}") 
+
+        mydb.commit() 
+
+        successful = True
+
+    except Exception as e:
+        logging.critical("Ranking table not updated")
+        logging.critical(e)
+        print(e)
+        successful = False
+
+    finally:
+        mydb.close()
+        return successful
+    
 # ------------------------%%%% TESTING %%%%----------------------------------------------------------------------------------------------------------------------
 #connect_db()
 #all_product_id = read_product_id(1)

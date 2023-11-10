@@ -102,3 +102,31 @@ def insertion_Reviews_table():
             csv_writer = csv.writer(csv_file)
             csv_writer.writerow(["product_id","reviews","created_at"])
 
+def insertion_Ranking_table():
+    val = []
+    #open the csv file 
+    #file = 'test.csv'
+    ranking_path = os.path.join(os.getcwd(),'products\Rankings.csv')
+    with open(ranking_path, mode='r') as csv_file: 
+        #read csv using reader class 
+        csv_reader = csv.reader(csv_file) 
+
+        #skip header 
+        header = next(csv_reader) 
+        header = next(csv_reader)
+
+        #Read csv row wise 
+        for row in csv_reader: 
+            val.append(tuple(row))
+
+    #print(val)
+    successful = sql_functions.insert_Ranking(val)
+
+    if successful:
+        with open(ranking_path, mode='w') as csv_file: 
+            csv_writer = csv.writer(csv_file)
+            csv_writer.writerow(["product_id","rank","date"])
+
+
+
+insertion_Ranking_table()

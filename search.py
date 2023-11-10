@@ -9,12 +9,16 @@ import product
 import requests
 import time
 import sql_functions
+import csv_converter
 
 # checks if the product ID is already exsisting or not
 # 
 def check_category_page(category_id, category_name):
     # Uses SQL Query to Retrieve all the products in that category
     all_product_ids = sql_functions.read_product_id(category_id= category_id)
+
+    #rank count set at zero
+    rank= 1
 
     # goes through multiple pages for a particular category
     for page in range(1):
@@ -52,5 +56,9 @@ def check_category_page(category_id, category_name):
             #print(pid)
             if pid not in all_product_ids: # If the product is not in the Products table
                 product.insert(products,pid,i,category_id)
+            
+            # add ranking to the product
+            csv_converter.Rankings(pid, rank)
+            rank += 1
 
 #check_category_page(category_id= 1)

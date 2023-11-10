@@ -45,7 +45,7 @@ def scrape_flipkart():
     insertion.insertion_Ratings_table()
     insertion.insertion_Reviews_table()
     insertion.insertion_Stars_table()
-
+    insertion.insertion_Ranking_table()
     logging.info("Completed")
 
 #scrape_flipkart()

@@ -74,4 +74,16 @@ def Ratings(product_id, rating, rating_counts,_5_star, _4_star, _3_star, _2_star
     
     logging.info("Inserted into Stars.csv")
 
-#Ratings(product_id='fsafsa',rating=4,rating_counts=32434 ,_5_star = 456529, _4_star=160359, _3_star=44473, _2_star =15761, _1_star =43049)
+#---------------------%%%% Inserting Product Ranking into Rankings.csv %%%%------------------------------------------------------------------------------------------------------------- 
+def Rankings(product_id,rank):
+
+    Ranking = {"product_id": [product_id], "rank": [rank], "date":[datetime.datetime.now().strftime("%x")]}
+
+    logging.info("Inserting values into Rankings.csv")
+    ranking_path = os.path.join(os.getcwd(),'products\Rankings.csv')
+
+    rankings = pd.DataFrame(Ranking)
+    rankings.to_csv(ranking_path, mode='a', index=False, header=False)
+
+
+Rankings('fsafsa',43049)
