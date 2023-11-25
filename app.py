@@ -1,3 +1,9 @@
+"""
+This page works as a admin console where one can insert new categories into the tabel and also manually run the sraping 
+function for all the categories.
+"""
+
+
 import streamlit as st
 import sql_functions
 import scrape_main
@@ -17,8 +23,9 @@ st.set_page_config(layout='wide')
 
 st.title("Flipkart Web Scrapper")
 
-tab1, tab2, tab3 = st.tabs(["Dashboard", "Categories", "Search"])
+tab1, tab2 = st.tabs(["Dashboard", "Categories"])
 
+#------------ %%%% DASHBOARD %%%% -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 with tab1:
    st.title("Dashboard")
@@ -29,7 +36,7 @@ with tab1:
         st.success('Done!')
     
 
-   col1, col2, col3 = st.columns(3)
+   col1, col2 = st.columns(2)
 
    with col1:
     st.subheader("Total Products")
@@ -39,9 +46,6 @@ with tab1:
         st.subheader("Total Categories")
         st.title(sql_functions.read_count_categories())
 
-    with col3:
-        st.subheader("Total Products")
-        st.title(sql_functions.read_count_products())
 
 
 #------------ %%%%CATEGORY%%%% -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -97,9 +101,6 @@ with tab2:
 
 
 
-        
-with tab3:
-   st.title("Search")
    
  
 
