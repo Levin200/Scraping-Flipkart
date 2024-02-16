@@ -82,7 +82,7 @@ def insertion_Reviews_table():
     #open the csv file 
     #file = 'test.csv'
     review_path = os.path.join(os.getcwd(),'products\product_details\Reviews.csv')
-    with open(review_path, mode='r') as csv_file: 
+    with open(review_path, mode='r',encoding='utf-8') as csv_file: 
         #read csv using reader class 
         csv_reader = csv.reader(csv_file) 
 
@@ -129,4 +129,6 @@ def insertion_Ranking_table():
 
 
 
-insertion_Ranking_table()
+#insertion_Ranking_table()
+#insertion_Stars_table()
+#insertion_Reviews_table()

@@ -51,8 +51,8 @@ def insert_product(product_id, product_name, URL, feature_text, category_id):
 
         logging.info("Insertion Successful")
  
-    except:
-        logging.error("Duplicate entry")
+    except Exception as e:
+        logging.error(f"{e}")
 
     finally:
         mydb.close()
@@ -78,8 +78,8 @@ def insert_image(product_id, img_url):
 
         logging.info("Insertion Successful")
 
-    except:
-        logging.error("Duplicate entry")
+    except Exception as e:
+        logging.error(f"{e}")
 
     finally:
         mydb.close()

@@ -21,7 +21,7 @@ def check_category_page(category_id, category_name):
     rank= 1
 
     # goes through multiple pages for a particular category
-    for page in range(1):
+    for page in range(10):
         headers = {'Origin': 'http://flipkart.com','Referer': 'http://flipkart.com/','User-Agent': 'Chrome/54.0.2840.90'}
         base_url = "https://www.flipkart.com/search?q={}&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&sort=popularity&page={}"
 

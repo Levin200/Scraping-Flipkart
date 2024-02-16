@@ -77,7 +77,7 @@ def Ratings(product_id, rating, rating_counts,_5_star, _4_star, _3_star, _2_star
 #---------------------%%%% Inserting Product Ranking into Rankings.csv %%%%------------------------------------------------------------------------------------------------------------- 
 def Rankings(product_id,rank):
 
-    Ranking = {"product_id": [product_id], "rank": [rank], "date":[datetime.datetime.now().strftime("%x")]}
+    Ranking = {"product_id": [product_id], "rank": [rank], "date":[datetime.datetime.now()]}
 
     logging.info("Inserting values into Rankings.csv")
     ranking_path = os.path.join(os.getcwd(),'products\Rankings.csv')
