@@ -36,8 +36,6 @@ To run this project, you will need to add the following environment variables to
 
 ## Installation
 
-Install Flipkart with pip
-
 ```bash
   python -m venv venv
 
