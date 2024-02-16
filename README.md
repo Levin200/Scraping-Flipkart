@@ -10,17 +10,17 @@ All the scraping and rest of the information can be seen on web UI which built u
 
 ## Screenshot of StreamLit UI
 
-![First screen](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/flipkart.jpg?raw=true)
+![First screen](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/flipkart.png?raw=true)
 
-![Category Page](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/flipkart2.jpg?raw=true)
+![Category Page](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/flipkart2.png?raw=true)
 
-![Category Page](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/flipkart3.jpg?raw=true)
+![Category Page](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/flipkart3.png?raw=true)
 
-![Category Page](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/flipkart4.jpg?raw=true)
+![Category Page](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/flipkart4.png?raw=true)
 
 ## Database 
 
-![Database](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/Flipkart_DB.jpg?raw=true)
+![Database](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/Flipkart_DB.png?raw=true)
 
 The following shows the Database Flipkart in MySQL.
 
