@@ -16,8 +16,6 @@ All the scraping and rest of the information can be seen on web UI which built u
 
 ![Category Page](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/flipkart3.png?raw=true)
 
-![Category Page](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/flipkart4.png?raw=true)
-
 ## Database 
 
 ![Database](https://github.com/Levin200/Web-Scraping-Flipkart/blob/main/images/Flipkart_DB.png?raw=true)
